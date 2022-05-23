@@ -10,14 +10,25 @@
 // recuperando o modulo de configuração do servidor
 const app = require('./config/server')
 
+// recuperar o modulo mockup
+const noticias = require('./mockup')
+
 // rota home
 app.get('/', function(req, res){
-    res.render('home/index')
+    res.render('home/index', {noticias: noticias.slice(0, 3)})
 })
 
 // rota noticias
 app.get('/noticias', function(req, res){
-    res.render('news/noticias')
+    // passamos todas as noticias do arquivo mockup atravez de um objeto javascript
+    res.render('news/noticias', {noticias: noticias})
+})
+
+//rota noticia
+app.get('/noticia', function(req, res){
+    // recuperar id notícia por get
+    const id = req.query.id
+    res.render('news/noticia', { noticia : noticias[id] })
 })
 
 //rota admin
