@@ -4,7 +4,7 @@
 // npm install express
 // npm install ejs
 
-// recusos do desenvolvimento
+// recursos do desenvolvimento
 // npm install -g nodemon
 
 // recuperando o modulo de configuração do servidor
@@ -18,6 +18,11 @@ app.get('/', function(req, res){
 // rota noticias
 app.get('/noticias', function(req, res){
     res.render('news/noticias')
+})
+
+//rota admin
+app.get('/admin', function(req, res){
+    res.render('admin/form_add_noticia')
 })
 
 app.listen(3000, () => {
