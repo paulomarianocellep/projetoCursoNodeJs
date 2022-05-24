@@ -22,6 +22,14 @@
                         Admin
                     </a>
                 </li>
+                <li>
+                    <% if(typeof(autorizado) != 'undefined') { %>
+                        <a href="/admin/sair" class="nav-link text-white">
+                            Sair
+                        </a>
+                    <% } %>
+                </li>
+
             </ul>
         </div>
         <div></div>

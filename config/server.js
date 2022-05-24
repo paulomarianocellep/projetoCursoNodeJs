@@ -1,6 +1,9 @@
 // recuperar a biblioteca do express
 const express = require('express')
 
+// recuperar biblioteca express session
+const session = require('express-session')
+
 //adicionar os recusos do express ao nosso app
 const app = express()
 
@@ -12,6 +15,16 @@ app.set('views', './app/views')
 
 // caminho dos arquivos estáticos
 app.use(express.static('./app/public'))
+
+// Configuração para o método POST
+app.use(express.urlencoded({extended: true}))
+
+// Configuração do Express Session
+app.use(session({
+    secret: 'L-S#V5pQ<C/kq%D', //a senha não pode ter aspas e \
+    resave: false,
+    saveUninitialized: false 
+}))
 
 
 module.exports = app
